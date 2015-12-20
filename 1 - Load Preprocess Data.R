@@ -7,5 +7,7 @@
 # -interval: Identifier for the 5-minute interval in which measurement was taken
 
 # 1. Load the data (i.e. read.csv())
+activity <- read.csv("activity.csv", stringsAsFactors = T)
+str(activity)
 
 # 2. Process/transform the data (if necessary) into a format suitable for your analysis

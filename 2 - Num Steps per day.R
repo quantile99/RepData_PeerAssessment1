@@ -17,8 +17,11 @@ head(steps_per_day)
 hist(steps_per_day$steps, breaks = 10)
 
 # 2. Calculate and report the mean and median total number of steps taken per day
+summary <-
 steps_per_day %>% 
     filter(!is.na(steps)) %>%
     summarise_each(funs(mean, median), steps)
 
+
+summary[[1]]
 

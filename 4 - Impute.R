@@ -27,7 +27,7 @@ activity <- merge(x = activity, y = avg_steps_per_interval, by.x = "interval2", 
 activity <- activity %>%
     mutate(impute_steps = ifelse(is.na(activity$steps.x),activity$steps.y,activity$steps.x))
 
-str(activity)
+str(activity2)
 
 
 
@@ -54,6 +54,14 @@ steps_per_day2 <-
     group_by(date) %>% 
     summarise_each(funs(sum), steps)
 head(steps_per_day2)
+
+
+summary <-
+    steps_per_day2 %>% 
+    filter(!is.na(steps)) %>%
+    summarise_each(funs(mean, median), steps)
+
+summary
 
 
 # 2. Make a histogram of the total number of steps taken each day
